@@ -1,12 +1,26 @@
 function addItem() {
-var input = document.getElementById("newItem").value;;
+var input = document.getElementById("newItem").value;
 var list = document.getElementById("listDisplay");
 var item = document.createElement("li");
+var btnClose = document.createElement("button");
+var iconClose = document.createElement("span");
 var itemName= document.createTextNode(input);
+btnClose.addEventListener("click", removeParentListItem);
+btnClose.classList.add("btn");
+btnClose.classList.add("btn-danger");
+btnClose.classList.add("btn-xs");
+iconClose.classList.add("glyphicon");
+iconClose.classList.add("glyphicon-remove");
+btnClose.appendChild(iconClose);
 item.appendChild(itemName);
+item.appendChild(btnClose);
 list.appendChild(item);
 document.getElementById("newItem").value = "";
-
+}
+function removeParentListItem(){
+var mom= this.parentNode;
+var grandma = mom.parentNode;
+grandma.removeChild(mom);
 }
 
 //courtesy of w3schools, from: http://www.w3schools.com/js/js_cookies.asp
