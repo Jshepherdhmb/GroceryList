@@ -30,7 +30,15 @@ var itemRemove = mom.firstChild.textContent;
 var itemIndex = myList.indexOf(itemRemove);
 myList.splice(itemIndex,1);
 }
+function saveList(){
+var savedList = myList.toString();
+setCookie("savedlist",savedList,2);
 
+}
+function clearList(){
+document.getElementById("listDisplay").innerHTML = "";
+myList = [];
+}
 //courtesy of w3schools, from: http://www.w3schools.com/js/js_cookies.asp
 function setCookie(cname, cvalue, exdays) {
     var d = new Date();
